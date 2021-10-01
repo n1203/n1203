@@ -21,7 +21,9 @@
 
 **我的开源项目:**
 
-[![ec-ui-discuzQ](https://github.com/n1203/ec-ui-discuzQ)](https://github.com/n1203/ec-ui-discuzQ)
+[AkeAdmin](https://github.com/n1203/AKe-Vue3-Admin)
+
+[ec-ui-discuzQ](https://github.com/n1203/ec-ui-discuzQ)
 
 ----------
 
@@ -114,6 +116,7 @@
 <ul>
 <li>离开原公司(数澜科技)入职新公司(稿定科技)</li>
 <li>持续学习</li>
+<li>9月份 开始迭代 AkeAdmin 开源项目（Vue3）</li>
 </ul>
 </div>
 </details>
