@@ -4,9 +4,6 @@
 <br />
 
 你好， 我是 [Mr.WuShuang](https://space.bilibili.com/427118432) ，出生于1998年，一位将近1.5年工作经验的前端开发工程师。
-
-  <img align="right" alt="GIF" src="./code.gif" width="430" height="100%" />
-
 - 💬 如果你对我感兴趣，可以加我 **微信:只等发财**(zhidengfacai) 进一步交流。
 - 📫 我的邮箱: [pingxi8@dingtalk.com](mailto:pingxi8@dingtalk.com);
 - 📝 [我的哔哩哔哩up主页](https://space.bilibili.com/427118432)
@@ -95,7 +92,7 @@
 <li>持续学习</li>
 <li>10月份 开始准备面试</li>
 <li>12月份 前往杭州尝试人生第一次真正的面试</li>
-<li>12月份 前往深圳尝试人生第一次真正的面试</li>
+<li>12月份 前往深圳面试</li>
 </ul>
 </div>
 </details>
@@ -104,7 +101,7 @@
   <summary>2020年</summary>
 <div style="width: 98%; margin: 0 auto">
 <ul>
-<li>1月份 前往西安尝试人生第一次真正的面试</li>
+<li>1月份 前往西安面试</li>
 <li>1月份 收到人生第一批offer</li>
 <li>1月份 疫情原因在家继续面试</li>
 <li>2月份 收到offer</li>
