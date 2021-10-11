@@ -19,6 +19,10 @@
 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
 <code><img height="20" src="https://img20.360buyimg.com/ling/jfs/t1/20876/36/12835/3043/5c9c2929Ed18cfb11/15b1c03ec830ab8e.png"></code>
 
+### 我在 GitHub 上的统计
+<a title="Hits" target="_blank" href="https://github.com/n1203/n1203"><img src="https://hits.b3log.org/n1203/n1203.svg"></a>
+[![Github Stats](https://github-readme-stats.vercel.app/api?username=n1203&theme=tokyonight&show_icons=true)](https://github.com/n1203)
+
 **我的开源项目:**
 
 [AkeAdmin](https://github.com/n1203/AKe-Vue3-Admin)
