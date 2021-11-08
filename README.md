@@ -117,8 +117,9 @@
   <summary>2021年</summary>
 <div style="width: 98%; margin: 0 auto">
 <ul>
-<li>离开原公司(数澜科技)入职新公司(稿定科技)</li>
-<li>持续学习</li>
+<li>5月份：订婚</li>
+<li>8月底：离开原公司(数澜科技)</li>
+<li>9月初：入职新公司(稿定科技)</li>
 <li>9月份 开始迭代 AkeAdmin 开源项目（Vue3）</li>
 </ul>
 </div>
