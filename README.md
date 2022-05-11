@@ -1,7 +1,6 @@
 ### Hey，我是Mr.WuShuang
- <img src="https://avatars.githubusercontent.com/u/30693884?v=4" width="25px">
- <img src="https://swg.notion.pet/s/058dfefe627b5dc7029d03791796ce88" width="25px">
-
+ <code><img src="https://avatars.githubusercontent.com/u/30693884?v=4" width="25px" ></code>
+ <code><img src="https://swg.notion.pet/s/058dfefe627b5dc7029d03791796ce88" width="25px"></code>
 <br />
 
 你好， 我是 [Mr.WuShuang](https://space.bilibili.com/427118432) ，出生于1998年，一位将近1.5年工作经验的前端开发工程师。
