@@ -1,5 +1,6 @@
 ### Hey，我是Mr.WuShuang
  <img src="https://avatars.githubusercontent.com/u/30693884?v=4" width="25px">
+ <img src="https://swg.notion.pet/s/058dfefe627b5dc7029d03791796ce88" width="25px">
 
 <br />
 
