@@ -128,6 +128,18 @@
 </div>
 </details>
 
+
+<details style="cursor: pointer;">
+  <summary>2022年</summary>
+<div style="width: 98%; margin: 0 auto">
+<ul>
+<li>1月份：开始研发NotionPet</li>
+<li>3月15日：NotionPet上线</li>
+<li>4月底：NotionPet破1500用户</li>
+<li>5月份：进行中</li>
+</ul>
+</div>
+</details>
 ----------
 
 ✍️ **我的文章:**
@@ -144,4 +156,4 @@
 
 🥰 **社区粉丝:**
 
-在哔哩哔哩拥有 [1.8K](https://space.bilibili.com/427118432) 粉丝
+在哔哩哔哩拥有 [1.9K](https://space.bilibili.com/427118432) 粉丝
