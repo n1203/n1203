@@ -136,7 +136,7 @@
 <li>1月份：开始研发NotionPet</li>
 <li>3月15日：NotionPet上线</li>
 <li>4月底：NotionPet破1500用户</li>
-<li>5月份：进行中</li>
+<li>5月底：NotionPet破4500用户</li>
 </ul>
 </div>
 </details>
