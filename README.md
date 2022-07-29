@@ -138,7 +138,7 @@
 <li>4月底：NotionPet破1500用户</li>
 <li>5月底：NotionPet破4500用户</li>
 <li>6月底：NotionPet破7000用户</li>
-<li>6月底：NotionPet破9000用户</li>
+<li>7月底：NotionPet破9000用户</li>
 </ul>
 </div>
 </details>
