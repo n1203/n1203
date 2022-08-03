@@ -11,6 +11,8 @@
 - 📫 我的邮箱: [pingxi8@dingtalk.com](mailto:pingxi8@dingtalk.com);
 - 📝 [我的哔哩哔哩up主页](https://space.bilibili.com/427118432)
 
+<img src="https://swg-dev.notion.pet/s/bg-6d85a2b962ea64f4142696683be54f56" width="750px" />
+
 **技术栈 与 开发工具:**
 
 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
