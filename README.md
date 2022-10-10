@@ -165,4 +165,4 @@
  
 
 [![asciicast](https://dev.notion.pet/view/index.html?q=af72c58f632c9fca003ceb1d0dcf9150.5c9a29796343788900787e583b20c253)](https://dev.notion.pet/view/index.html?q=af72c58f632c9fca003ceb1d0dcf9150.5c9a29796343788900787e583b20c253)
-
+<img src="https://dev.notion.pet/view/index.html?q=af72c58f632c9fca003ceb1d0dcf9150.5c9a29796343788900787e583b20c253" />
