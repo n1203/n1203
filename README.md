@@ -162,7 +162,4 @@
 
 在哔哩哔哩拥有 [2K](https://space.bilibili.com/427118432) 粉丝
 
- 
-
-[![asciicast](https://dev.notion.pet/view/index.html?q=af72c58f632c9fca003ceb1d0dcf9150.5c9a29796343788900787e583b20c253)](https://dev.notion.pet/view/index.html?q=af72c58f632c9fca003ceb1d0dcf9150.5c9a29796343788900787e583b20c253)
-<img src="https://dev.notion.pet/view/index.html?q=af72c58f632c9fca003ceb1d0dcf9150.5c9a29796343788900787e583b20c253" />
+ <img src="https://swg-dev.notion.pet/s/bg-0a4ec1f962f75125196a1c7d1aede2b8" style="min-width:100px;width:750px;min-height:100px;height:300px">
