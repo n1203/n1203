@@ -1,40 +1,38 @@
-### Hey，我是Mr.WuShuang
- <code><img src="https://avatars.githubusercontent.com/u/30693884?v=4" width="25px" ></code>
- 
- <code><img src="https://swg.notion.pet/s/f6e08a64627b5e52025bc27a05f4c5d1" width="25px"></code>
- <code><img src="https://swg.notion.pet/s/058dfefe627b5dc7029d03791796ce88" width="25px"></code>
- <code><img src="https://swg.notion.pet/s/b69f67c0627b5e77021aa2070d7454fb" width="25px"></code>
-<br />
-
-你好， 我是 [Mr.WuShuang](https://space.bilibili.com/427118432) ，出生于1998年，一位2年工作经验的前端开发工程师。
+你好👋， 我是 [南风老胡](https://space.bilibili.com/427118432) ，出生于1998年，一位3年工作经验的前端开发工程师。
 - 💬 如果你对我感兴趣，可以加我 **微信:只等发财**(zhidengfacai) 进一步交流。
 - 📫 我的邮箱: [pingxi8@dingtalk.com](mailto:pingxi8@dingtalk.com);
 - 📝 [我的哔哩哔哩up主页](https://space.bilibili.com/427118432)
 
-<img src="https://swg-dev.notion.pet/s/bg-6d85a2b962ea64f4142696683be54f56" width="100%" />
+<h3> 🛠 &nbsp;Tech Stack</h3>
 
-**技术栈 与 开发工具:**
-
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"></code>
-<code><img height="20" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"></code>
-<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
-<code><img height="20" src="https://img20.360buyimg.com/ling/jfs/t1/20876/36/12835/3043/5c9c2929Ed18cfb11/15b1c03ec830ab8e.png"></code>
-
-### 我在 GitHub 上的统计
-<a title="Hits" target="_blank" href="https://github.com/n1203/n1203"><img src="https://hits.b3log.org/n1203/n1203.svg"></a>
-
-
-[![Github Stats](https://github-readme-stats.vercel.app/api?username=n1203&theme=tokyonight&show_icons=true)](https://github.com/n1203)
-
-**我的开源项目:**
-
-[AkeAdmin](https://github.com/n1203/AKe-Vue3-Admin)
-
-[ec-ui-discuzQ](https://github.com/n1203/ec-ui-discuzQ)
-
-----------
-
+- 📱 &nbsp;Mobile:&nbsp;
+  ![React Native](https://img.shields.io/badge/-React%20Native-0A1A2F?style=flat&logo=React&logoColor=00d8fd)
+  ![Taro.js](https://img.shields.io/badge/-Taro.js-0A1A2F?style=flat&logo=Taro.js&logoColor=00d8fd)
+  ![微信小程序](https://img.shields.io/badge/-微信小程序-0A1A2F?style=flat&logo=微信小程序&logoColor=00d8fd)
+- 🗄 &nbsp;Backend:&nbsp;
+  ![Node.js](https://img.shields.io/badge/-Node.js-0A1A2F?style=flat&logo=node.js)
+- 🌐 &nbsp;Frontend:&nbsp;
+  ![React](https://img.shields.io/badge/-React-0A1A2F?style=flat&logo=react)
+  ![Next.js](https://img.shields.io/badge/-Next.js-0A1A2F?style=flat&logo=next.js)
+  ![Vue.js](https://img.shields.io/badge/-Vue.js-0A1A2F?style=flat&logo=vue.js)
+- 🛢 &nbsp;Database:&nbsp;
+  ![MongoDB](https://img.shields.io/badge/-MongoDB-0A1A2F?style=flat&logo=mongodb)
+  ![MySQL](https://img.shields.io/badge/-MySQL-0A1A2F?style=flat&logo=mysql&logoColor=00d8fd)
+- ⚙️ &nbsp;VCS: &nbsp;
+  ![Git](https://img.shields.io/badge/-Git-0A1A2F?style=flat&logo=git)
+  ![GitHub](https://img.shields.io/badge/-GitHub-0A1A2F?style=flat&logo=github)
+  ![Markdown](https://img.shields.io/badge/-Markdown-0A1A2F?style=flat&logo=markdown)
+- 🔧 &nbsp;IDE's:&nbsp;
+  ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-0A1A2F?style=flat&logo=visual-studio-code&logoColor=007ACC)
+  ![Vim](https://img.shields.io/badge/-Vim-0A1A2F?style=flat&logo=vim&logoColor=007ACC)
+- 🖥 &nbsp;Design:&nbsp;
+  ![AdobeXD](https://img.shields.io/badge/-AdobeXD-0A1A2F?style=flat&logo=adobe-xd)
+  ![Photoshop](https://img.shields.io/badge/-Photoshop-0A1A2F?style=flat&logo=adobe-photoshop)
+  ![Figma](https://img.shields.io/badge/-Figma-0A1A2F?style=flat&logo=figma)
+<!-- <a href="https://github.com/jrgarciadev">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=jrgarciadev&show_icons=true&card_width=400&hide_border=true&title_color=f4f4f4&icon_color=00d8fd&bg_color=0A1A2F&text_color=a3a8c3&hide=contribs" />
+</a> -->
+<!-- 
 **我的自学之路:**
 <details style="cursor: pointer;">
   <summary>2014年</summary>
@@ -145,20 +143,4 @@
 </div>
 </details>
 ----------
-
-✍️ **我的文章:**
-<details>
-  <summary style="cursor: pointer;">开源库文档</summary>
-<div style="width: 98%; margin: 0 auto">
-<ul>
-<li><a href="http://cloudbase-context.github.gold/">cloudbase-context【腾讯云开发二次封装框架】</a></li>
-</ul>
-</div>
-</details>
-
-----------
-
-🥰 **社区粉丝:**
-
-在哔哩哔哩拥有 [2K](https://space.bilibili.com/427118432) 粉丝
-
+ -->
