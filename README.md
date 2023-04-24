@@ -1,7 +1,6 @@
-你好👋， 我是 [南风老胡](https://space.bilibili.com/427118432) ，出生于1998年，一位3年工作经验的前端开发工程师。
+你好👋， 我是 南风老胡 ，出生于1998年，一位3年工作经验的前端开发工程师。
 - 💬 如果你对我感兴趣，可以加我 **微信:只等发财**(zhidengfacai) 进一步交流。
 - 📫 我的邮箱: [pingxi8@dingtalk.com](mailto:pingxi8@dingtalk.com);
-- 📝 [我的哔哩哔哩up主页](https://space.bilibili.com/427118432)
 
 <h3> 🛠 &nbsp;Tech Stack</h3>
 
