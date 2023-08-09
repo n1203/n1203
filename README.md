@@ -11,6 +11,7 @@
 - 🗄 &nbsp;Backend:&nbsp;
   ![Node.js](https://img.shields.io/badge/-Node.js-0A1A2F?style=flat&logo=node.js)
   ![Python](https://img.shields.io/badge/-Python-0A1A2F?style=flat&logo=Python)
+  ![nestjs](https://img.shields.io/badge/-nest.js-0A1A2F?style=flat&logo=nest.js)
 - 🌐 &nbsp;Frontend:&nbsp;
   ![React](https://img.shields.io/badge/-React-0A1A2F?style=flat&logo=react)
   ![Next.js](https://img.shields.io/badge/-Next.js-0A1A2F?style=flat&logo=next.js)
