@@ -1,7 +1,7 @@
 你好👋， 我是 南风老胡 ，出生于1998年，一位前端开发工程师。
 - 💬 如果你对我感兴趣，可以加我 **微信:只等发财**(zhidengfacai)进一步交流。
 - 📫 我的邮箱: [islaohu@gmail.com](mailto:islaohu@gmail.com);
-
+<!--
 <h3> 🛠 &nbsp;Tech Stack</h3>
 
 - 📱 &nbsp;Mobile:&nbsp;
@@ -32,10 +32,9 @@
   ![AdobeXD](https://img.shields.io/badge/-AdobeXD-0A1A2F?style=flat&logo=adobe-xd)
   ![Photoshop](https://img.shields.io/badge/-Photoshop-0A1A2F?style=flat&logo=adobe-photoshop)
   ![Figma](https://img.shields.io/badge/-Figma-0A1A2F?style=flat&logo=figma)
-<!-- <a href="https://github.com/jrgarciadev">
+ <a href="https://github.com/jrgarciadev">
     <img height="180em" src="https://github-readme-stats.vercel.app/api?username=jrgarciadev&show_icons=true&card_width=400&hide_border=true&title_color=f4f4f4&icon_color=00d8fd&bg_color=0A1A2F&text_color=a3a8c3&hide=contribs" />
-</a> -->
-<!-- 
+</a>
 **我的自学之路:**
 <details style="cursor: pointer;">
   <summary>2014年</summary>
