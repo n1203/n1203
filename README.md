@@ -1,34 +1,34 @@
 你好👋， 我是 南风老胡 ，出生于1998年，一位前端开发工程师。
--- 💬 如果你对我感兴趣，可以加我 ****微信:只等发财微信:只等发财********(zhidengfacai)进一步交流。
--- 📫 我的邮箱: [[islaohu@gmail.comislaohu@gmail.com]](mailto:islaohu@gmail.com);
+- 💬 如果你对我感兴趣，可以加我 **微信:只等发财**(zhidengfacai)进一步交流。
+- 📫 我的邮箱: [islaohu@gmail.com](mailto:islaohu@gmail.com);
 
-<<h3>> 🛠 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tech Stack</</h3>>
+<h3> 🛠 &nbsp;Tech Stack</h3>
 
--- 📱 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  ![![React NativeReact Native]]]]((https://img.shields.io/badge/-React%20Native-0A1A2F?style=flat&logo=React&logoColor=00d8fd)
-  ![![Taro.jsTaro.js]]]]((https://img.shields.io/badge/-Taro.js-0A1A2F?style=flat&logo=Taro.js&logoColor=00d8fd)
-  ![![微信小程序微信小程序]]]]((https://img.shields.io/badge/-微信小程序-0A1A2F?style=flat&logo=wechat)
--- 🗄 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Backend:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  ![![Node.jsNode.js]]]]((https://img.shields.io/badge/-Node.js-0A1A2F?style=flat&logo=node.js)
-  ![![PythonPython]]]]((https://img.shields.io/badge/-Python-0A1A2F?style=flat&logo=Python)
-  ![![nest.jsnest.js]]]]((https://img.shields.io/badge/nest.js-black?logo=nestjs)
-- 🌐  🌐 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frontend:Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend::Frontend:&nbsp;
+- 📱 &nbsp;Mobile:&nbsp;
+  ![React Native](https://img.shields.io/badge/-React%20Native-0A1A2F?style=flat&logo=React&logoColor=00d8fd)
+  ![Taro.js](https://img.shields.io/badge/-Taro.js-0A1A2F?style=flat&logo=Taro.js&logoColor=00d8fd)
+  ![微信小程序](https://img.shields.io/badge/-微信小程序-0A1A2F?style=flat&logo=wechat)
+- 🗄 &nbsp;Backend:&nbsp;
+  ![Node.js](https://img.shields.io/badge/-Node.js-0A1A2F?style=flat&logo=node.js)
+  ![Python](https://img.shields.io/badge/-Python-0A1A2F?style=flat&logo=Python)
+  ![nest.js](https://img.shields.io/badge/nest.js-black?logo=nestjs)
+- 🌐 &nbsp;Frontend:&nbsp;
   ![React](https://img.shields.io/badge/-React-0A1A2F?style=flat&logo=react)
   ![Next.js](https://img.shields.io/badge/next.js-black?logo=nextdotjs)
   ![Vue.js](https://img.shields.io/badge/-Vue.js-0A1A2F?style=flat&logo=vue.js)
-- 🛢  🛢 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Database:Database::Database::Database::Database::Database::Database::Database::Database::Database::Database::Database::Database::Database::Database::Database::Database:&nbsp;
+- 🛢 &nbsp;Database:&nbsp;
   ![MongoDB](https://img.shields.io/badge/-MongoDB-0A1A2F?style=flat&logo=mongodb)
   ![MySQL](https://img.shields.io/badge/-MySQL-0A1A2F?style=flat&logo=mysql&logoColor=00d8fd)
   ![PostgreSQL](https://img.shields.io/badge/postgreSQL-black?logo=postgresql)
   
-- ⚙️  ⚙️ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VCS: VCS: &nbsp;
+- ⚙️ &nbsp;VCS: &nbsp;
   ![Git](https://img.shields.io/badge/-Git-0A1A2F?style=flat&logo=git)
   ![GitHub](https://img.shields.io/badge/-GitHub-0A1A2F?style=flat&logo=github)
   ![Markdown](https://img.shields.io/badge/-Markdown-0A1A2F?style=flat&logo=markdown)
-- 🔧  🔧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IDE's:IDE's:&nbsp;
+- 🔧 &nbsp;IDE's:&nbsp;
   ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-0A1A2F?style=flat&logo=visual-studio-code&logoColor=007ACC)
   ![Vim](https://img.shields.io/badge/-Vim-0A1A2F?style=flat&logo=vim&logoColor=007ACC)
-- 🖥  🖥 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Design:Design::Design::Design::Design::Design::Design::Design::Design::Design::Design::Design::Design::Design::Design::Design::Design:&nbsp;
+- 🖥 &nbsp;Design:&nbsp;
   ![AdobeXD](https://img.shields.io/badge/-AdobeXD-0A1A2F?style=flat&logo=adobe-xd)
   ![Photoshop](https://img.shields.io/badge/-Photoshop-0A1A2F?style=flat&logo=adobe-photoshop)
   ![Figma](https://img.shields.io/badge/-Figma-0A1A2F?style=flat&logo=figma)
