@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☀️ 早间巡检 · 2026-06-05</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d2e;
+    --surface2: #222540;
+    --border: #2d3154;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --purple: #6c63ff;
+    --green: #4ade80;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --blue: #60a5fa;
+    --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "PingFang SC", system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px 16px 60px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1d2e 0%, #222540 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left .date { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .chip-ok { background: rgba(74,222,128,0.1); border-color: var(--green); color: var(--green); }
+  .chip-warn { background: rgba(251,191,36,0.1); border-color: var(--yellow); color: var(--yellow); }
+  .chip-err { background: rgba(248,113,113,0.1); border-color: var(--red); color: var(--red); }
+  .chip-muted { background: rgba(148,163,184,0.1); border-color: #475569; color: var(--text-muted); }
+
+  /* KPI Bar */
+  .kpi-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .kpi-card .kpi-num { font-size: 26px; font-weight: 800; line-height: 1; }
+  .kpi-card .kpi-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+  .kpi-red .kpi-num { color: var(--red); }
+  .kpi-yellow .kpi-num { color: var(--yellow); }
+  .kpi-blue .kpi-num { color: var(--blue); }
+  .kpi-green .kpi-num { color: var(--green); }
+  .kpi-muted .kpi-num { color: var(--text-muted); }
+
+  /* Section */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    background: var(--surface2);
+  }
+  .section-header .badge {
+    background: var(--border);
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .section-body { padding: 12px 18px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 4px 8px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 8px 8px;
+    border-bottom: 1px solid rgba(45,49,84,0.5);
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Count badge */
+  .count-high { color: var(--red); font-weight: 700; }
+  .count-mid { color: var(--yellow); font-weight: 600; }
+  .count-low { color: var(--text-muted); }
+
+  /* Project badge */
+  .proj-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .proj-tap { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .proj-conv { background: rgba(108,99,255,0.15); color: var(--purple); }
+  .proj-billing { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .proj-canvas { background: rgba(74,222,128,0.15); color: var(--green); }
+
+  /* PR row */
+  .pr-row td:last-child { font-size: 11px; color: var(--text-muted); }
+  .stale { background: rgba(251,191,36,0.07); }
+  .stale .stale-mark { color: var(--yellow); font-weight: 600; }
+
+  /* Action list */
+  .action-list { list-style: none; }
+  .action-list li {
+    padding: 10px 12px;
+    border-left: 3px solid var(--border);
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .action-list li.p1 { border-left-color: var(--red); }
+  .action-list li.p2 { border-left-color: var(--yellow); }
+  .action-list li.p3 { border-left-color: #475569; }
+  .action-emoji { font-size: 16px; flex-shrink: 0; }
+  .action-text { flex: 1; }
+  .action-title { font-weight: 600; font-size: 13px; }
+  .action-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .action-source { font-size: 10px; color: #475569; margin-top: 4px; }
+
+  /* Info box */
+  .info-box {
+    background: rgba(96,165,250,0.07);
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .info-box strong { color: var(--blue); }
+
+  /* Todo item */
+  .todo-item {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: rgba(255,255,255,0.02);
+  }
+  .todo-item.critical { border-left: 3px solid var(--red); }
+  .todo-item.watch { border-left: 3px solid var(--yellow); }
+  .todo-item.monitor { border-left: 3px solid #475569; }
+
+  /* State badge */
+  .state-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .state-started { background: rgba(108,99,255,0.2); color: var(--purple); }
+  .state-unstarted { background: rgba(148,163,184,0.1); color: var(--text-muted); }
+
+  /* Divider */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 6px 0; }
+
+  @media (max-width: 600px) {
+    .kpi-bar { grid-template-columns: repeat(3, 1fr); }
+    .header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>☀️ 早间巡检</h1>
+      <div class="date">2026年06月05日（星期五）&nbsp;&nbsp;·&nbsp;&nbsp;生成于 今日早晨</div>
+    </div>
+    <div class="chips">
+      <span class="chip chip-ok">✓ Sentry</span>
+      <span class="chip chip-err">✗ Linear（远程不可用）</span>
+      <span class="chip chip-ok">✓ GitHub</span>
+      <span class="chip chip-warn">⚠ 无昨日日报</span>
+    </div>
+  </div>
+
+  <!-- KPI Bar -->
+  <div class="kpi-bar">
+    <div class="kpi-card kpi-red">
+      <div class="kpi-num">15</div>
+      <div class="kpi-label">Sentry 未解决</div>
+    </div>
+    <div class="kpi-card kpi-yellow">
+      <div class="kpi-num">19</div>
+      <div class="kpi-label">昨日新增告警</div>
+    </div>
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-num">—</div>
+      <div class="kpi-label">Linear 进行中</div>
+    </div>
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-num">20</div>
+      <div class="kpi-label">待处理 PR</div>
+    </div>
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-num">0</div>
+      <div class="kpi-label">昨日遗留待办</div>
+    </div>
+  </div>
+
+  <!-- 昨日遗留待办 -->
+  <div class="section">
+    <div class="section-header">
+      📋 昨日遗留待办
+      <span class="badge">0</span>
+    </div>
+    <div class="section-body">
+      <div class="info-box">
+        未找到昨日日报（<code>reports/daily-report-2026-06-04.html</code> 不存在），无法提取遗留待办事项。
+      </div>
+    </div>
+  </div>
+
+  <!-- Sentry 高危巡检 -->
+  <div class="section">
+    <div class="section-header">
+      🚨 Sentry 高危巡检 — 未解决 Error
+      <span class="badge">15</span>
+    </div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>错误标题</th>
+            <th style="text-align:right">累计次数</th>
+            <th>首次出现</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="proj-badge proj-conv">conversation-service</span></td>
+            <td>扣费失败: task_id=aa663eef-74c9-41c6-b788-f522f4e9a320</td>
+            <td style="text-align:right"><span class="count-high">829,821</span></td>
+            <td>2026-04-28</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>TurnstileError: [Cloudflare Turnstile] Invalid or missing type for param "si…</td>
+            <td style="text-align:right"><span class="count-high">81,842</span></td>
+            <td>2026-03-07</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>Canvas image upload failed: no URL returned</td>
+            <td style="text-align:right"><span class="count-high">64,312</span></td>
+            <td>2026-04-10</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>TypeError: Load failed</td>
+            <td style="text-align:right"><span class="count-high">46,913</span></td>
+            <td>2026-04-01</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>Error: HTTP Client Error with status code: 500</td>
+            <td style="text-align:right"><span class="count-high">20,751</span></td>
+            <td>2026-03-07</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>UnknownError: The operation failed for an unknown transient reason…</td>
+            <td style="text-align:right"><span class="count-mid">12,224</span></td>
+            <td>2026-03-07</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>Error: HTTP Client Error with status code: 500</td>
+            <td style="text-align:right"><span class="count-mid">9,044</span></td>
+            <td>2026-03-07</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>InvalidStateError: newestWorker is null</td>
+            <td style="text-align:right"><span class="count-mid">8,923</span></td>
+            <td>2026-03-07</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>TypeError: Importing a module script failed.</td>
+            <td style="text-align:right"><span class="count-mid">8,553</span></td>
+            <td>2026-03-07</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-conv">conversation-service</span></td>
+            <td>❌ 任务执行失败, 子任务执行 4 次全部失败, 抛出最后一个异常</td>
+            <td style="text-align:right"><span class="count-mid">2,570</span></td>
+            <td>2026-04-10</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-conv">conversation-service</span></td>
+            <td>BadRequestError: bad request</td>
+            <td style="text-align:right"><span class="count-mid">2,102</span></td>
+            <td>2026-04-28</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>TypeError: Cannot set properties of null (setting 'innerHTML')</td>
+            <td style="text-align:right"><span class="count-low">1,651</span></td>
+            <td>2026-03-18</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>Error: Error invoking enableDidUserTypeOnKeyboardLogging: Java object is gone</td>
+            <td style="text-align:right"><span class="count-low">367</span></td>
+            <td>2026-05-11</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>TypeError: undefined is not an object (evaluating 'window.webkit.messageHandlers…')</td>
+            <td style="text-align:right"><span class="count-low">856</span></td>
+            <td>2026-05-11</td>
+          </tr>
+          <tr>
+            <td><span class="proj-badge proj-tap">tap-prod</span></td>
+            <td>TypeError: Load failed</td>
+            <td style="text-align:right"><span class="count-mid">2,464</span></td>
+            <td>2026-03-07</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:14px; border-top: 1px solid var(--border); padding-top: 12px;">
+        <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">昨日新增告警 (2026-06-04) — 19 条</div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>项目</th>
+              <th>错误标题</th>
+              <th style="text-align:right">次数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="proj-badge proj-billing">billing-center</span></td>
+              <td>*errors.withStack: org service request failed: Post "https://tap-api-g…"</td>
+              <td style="text-align:right"><span class="count-mid">3</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-billing">billing-center</span></td>
+              <td>*errors.withStack: org service request failed: Post "https://tap-api-g…"</td>
+              <td style="text-align:right"><span class="count-mid">2</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-billing">billing-center</span></td>
+              <td>*url.Error: Post "https://tap-api-gateway…" connection refused</td>
+              <td style="text-align:right"><span class="count-mid">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-billing">billing-center</span></td>
+              <td>*url.Error: Post "https://tap-api-gateway…" connection refused</td>
+              <td style="text-align:right"><span class="count-mid">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-canvas">canvas-service</span></td>
+              <td>*pgconn.PgError: ERROR: current transaction is aborted, commands ignored</td>
+              <td style="text-align:right"><span class="count-mid">3</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-conv">conversation-service</span></td>
+              <td>CanvasValidateException: canvas name is too long</td>
+              <td style="text-align:right"><span class="count-low">4</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-conv">conversation-service</span></td>
+              <td>UnidentifiedImageError: cannot identify image file &lt;_io.BytesIO object&gt;</td>
+              <td style="text-align:right"><span class="count-low">2</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>Error: HTTP Client Error with status code: 503</td>
+              <td style="text-align:right"><span class="count-low">3</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>ReferenceError: canHistoryBack is not defined</td>
+              <td style="text-align:right"><span class="count-low">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>Error: HTTP Client Error with status code: 500 (×3条)</td>
+              <td style="text-align:right"><span class="count-low">3</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>Error: error #252 cannot get grid to draw rows when in middle of…</td>
+              <td style="text-align:right"><span class="count-low">2</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>TypeError: Cannot read properties of undefined (reading 'createElement')</td>
+              <td style="text-align:right"><span class="count-low">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>RangeError: WebAssembly.instantiate(): Out of memory: Cannot allocate…</td>
+              <td style="text-align:right"><span class="count-low">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>Error: Root did not complete. This is a bug in React.</td>
+              <td style="text-align:right"><span class="count-low">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>SyntaxError: Invalid or unexpected token</td>
+              <td style="text-align:right"><span class="count-low">1</span></td>
+            </tr>
+            <tr>
+              <td><span class="proj-badge proj-tap">tap-prod</span></td>
+              <td>ReferenceError: viewport is not defined</td>
+              <td style="text-align:right"><span class="count-low">1</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Linear 任务看板 -->
+  <div class="section">
+    <div class="section-header">
+      📌 Linear 任务看板
+    </div>
+    <div class="section-body">
+      <div class="info-box">
+        <strong>⚠ 远程环境网络限制</strong>：Linear API（<code>api.linear.app</code>）在本次远程执行环境中被网络策略拦截，无法拉取数据。<br>
+        如需查看 Linear 任务，请在本地环境执行晨间巡检。
+      </div>
+    </div>
+  </div>
+
+  <!-- GitHub PR 待处理 -->
+  <div class="section">
+    <div class="section-header">
+      🔀 GitHub PR 待处理
+      <span class="badge">20</span>
+    </div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>仓库</th>
+            <th>PR 标题</th>
+            <th>最后更新</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat: add Aliyun observability integration</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): add agent execution debug transcript</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): GenUI show_widget rendering support</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>test(canvas): expand unit coverage gate FE-974</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(desktop): add version policy gate</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(app): add Google Consent Mode v2 and EEA cookie banner</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>fix(canvas): improve collaboration undo and cursors</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">billing-center</td>
+            <td>chore(ci): 自动 rebase test 分支</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(desktop): add Electron desktop release foundation</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>fix: scope MediaStorm preview behavior to custom domain</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(tapnow): integrate Topaz 2.5 video-enhance frontend</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-04</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>[codex] Use tapnow.work for preview aliases <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore: add GTM container snippet <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore: initialize qa automation workspace (ENG-128) <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-admin-platform</td>
+            <td>[codex] Add TAP plugin management page <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): Canvas node command center <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat: 迁移画布操作到 canvas-service <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): add world director workspace and asset import <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-03</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-mobile-tapnow</td>
+            <td>Bump the minor-and-patch group across 1 directory with 38 updates <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-02</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore(deps): bump the npm_and_yarn group across 3 directories with 5 updates <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-02</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 今日行动清单 -->
+  <div class="section">
+    <div class="section-header">
+      ⚡ 今日行动清单 — Top 5 必做
+    </div>
+    <div class="section-body">
+      <ul class="action-list">
+        <li class="p1">
+          <span class="action-emoji">🔴</span>
+          <div class="action-text">
+            <div class="action-title">排查 conversation-service 扣费失败异常（829,821 次累计）</div>
+            <div class="action-desc">最高频 Sentry 错误，首见于 4 月 28 日至今未解决，涉及核心计费逻辑，影响用户付费体验。</div>
+            <div class="action-source">来源：Sentry · conversation-service · count 829,821</div>
+          </div>
+        </li>
+        <li class="p1">
+          <span class="action-emoji">🔴</span>
+          <div class="action-text">
+            <div class="action-title">修复 Canvas 图片上传失败（no URL returned，64,312 次）</div>
+            <div class="action-desc">画布核心功能受损，已持续近 2 个月。首见 4 月 10 日，需联合后端确认上传 URL 生成逻辑。</div>
+            <div class="action-source">来源：Sentry · tap-prod · count 64,312</div>
+          </div>
+        </li>
+        <li class="p1">
+          <span class="action-emoji">🔴</span>
+          <div class="action-text">
+            <div class="action-title">处理 Cloudflare Turnstile 验证错误（TurnstileError，81,842 次）</div>
+            <div class="action-desc">前端 Bot 验证组件配置问题，高频触发，可能导致部分用户无法完成操作，需联系安全/基础设施团队。</div>
+            <div class="action-source">来源：Sentry · tap-prod · count 81,842</div>
+          </div>
+        </li>
+        <li class="p2">
+          <span class="action-emoji">🟡</span>
+          <div class="action-text">
+            <div class="action-title">处理积压的 open PR（20 个，其中 9 个超 2 天无活动）</div>
+            <div class="action-desc">fe-app-tapnow 积压 18 个，需重点 review：Aliyun observability、GenUI widget、Desktop Electron 基建等关键特性 PR。fe-mobile-tapnow 和 fe-app-tapnow 依赖包 bump PR 已积压 3 天。</div>
+            <div class="action-source">来源：GitHub · Tamar-Edge-AI 组织</div>
+          </div>
+        </li>
+        <li class="p2">
+          <span class="action-emoji">🟡</span>
+          <div class="action-text">
+            <div class="action-title">关注 billing-center 昨日新增 4 条 org service 连接异常</div>
+            <div class="action-desc">昨日（2026-06-04）新增 4 条 billing-center Post 请求失败，指向 tap-api-gateway，可能为临时网络抖动，但需确认是否影响计费流程。</div>
+            <div class="action-source">来源：Sentry · billing-center · 昨日新增</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 数据说明 -->
+  <div class="section">
+    <div class="section-header">
+      ℹ️ 数据说明
+    </div>
+    <div class="section-body">
+      <div class="info-box">
+        <strong>数据来源：</strong>Sentry（tamar-td 组织）、GitHub（n1203 相关 open PR）<br>
+        <strong>Linear：</strong>api.linear.app 在本次远程执行环境中被网络策略拦截，任务看板数据不可用。如需完整数据，请在本地运行。<br>
+        <strong>Lark 日历：</strong>lark-cli 仅限本地环境使用，远程环境中不可用。如需包含日历事项的完整日报，请在本地运行 <code>daily-work-report</code> skill。<br>
+        <strong>昨日日报：</strong>未找到 <code>reports/daily-report-2026-06-04.html</code>，遗留待办为空。
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
