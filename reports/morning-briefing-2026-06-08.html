@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☀️ 早间巡检 · 2026-06-08</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d2e;
+    --surface2: #222540;
+    --border: #2d3154;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --purple: #6c63ff;
+    --green: #4ade80;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --blue: #60a5fa;
+    --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "PingFang SC", system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px 16px 60px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1d2e 0%, #222540 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-left .date { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .chip-ok { background: rgba(74,222,128,0.1); border-color: var(--green); color: var(--green); }
+  .chip-warn { background: rgba(251,191,36,0.1); border-color: var(--yellow); color: var(--yellow); }
+  .chip-err { background: rgba(248,113,113,0.1); border-color: var(--red); color: var(--red); }
+  .chip-muted { background: rgba(148,163,184,0.1); border-color: #475569; color: var(--text-muted); }
+
+  /* KPI Bar */
+  .kpi-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .kpi-card .kpi-num { font-size: 26px; font-weight: 800; line-height: 1; }
+  .kpi-card .kpi-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+  .kpi-red .kpi-num { color: var(--red); }
+  .kpi-yellow .kpi-num { color: var(--yellow); }
+  .kpi-blue .kpi-num { color: var(--blue); }
+  .kpi-green .kpi-num { color: var(--green); }
+  .kpi-muted .kpi-num { color: var(--text-muted); }
+
+  /* Section */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    background: var(--surface2);
+  }
+  .section-header .badge {
+    background: var(--border);
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .section-body { padding: 12px 18px; }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 4px 8px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .data-table td {
+    padding: 8px 8px;
+    border-bottom: 1px solid rgba(45,49,84,0.5);
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Project badge */
+  .proj-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .proj-tap { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .proj-billing { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .proj-canvas { background: rgba(74,222,128,0.15); color: var(--green); }
+
+  /* PR row */
+  .stale { background: rgba(251,191,36,0.04); }
+  .stale-hot { background: rgba(248,113,113,0.04); }
+  .stale-mark { color: var(--yellow); font-weight: 600; }
+  .stale-mark-red { color: var(--red); font-weight: 600; }
+
+  /* Action list */
+  .action-list { list-style: none; }
+  .action-list li {
+    padding: 10px 12px;
+    border-left: 3px solid var(--border);
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .action-list li.p1 { border-left-color: var(--red); }
+  .action-list li.p2 { border-left-color: var(--yellow); }
+  .action-list li.p3 { border-left-color: #475569; }
+  .action-emoji { font-size: 16px; flex-shrink: 0; }
+  .action-text { flex: 1; }
+  .action-title { font-weight: 600; font-size: 13px; }
+  .action-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .action-source { font-size: 10px; color: #475569; margin-top: 4px; }
+
+  /* Info box */
+  .info-box {
+    background: rgba(96,165,250,0.07);
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .info-box strong { color: var(--blue); }
+  .info-box-warn {
+    background: rgba(251,191,36,0.07);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .info-box-warn strong { color: var(--yellow); }
+
+  /* Divider */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 6px 0; }
+
+  /* PR group label */
+  .pr-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 8px 8px 4px;
+    letter-spacing: 0.3px;
+  }
+
+  @media (max-width: 600px) {
+    .kpi-bar { grid-template-columns: repeat(3, 1fr); }
+    .header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>☀️ 早间巡检</h1>
+      <div class="date">2026年06月08日（星期一）&nbsp;&nbsp;·&nbsp;&nbsp;生成于 2026-06-08 早间</div>
+    </div>
+    <div class="chips">
+      <span class="chip chip-err">✗ Sentry（远程不可用）</span>
+      <span class="chip chip-err">✗ Linear（远程不可用）</span>
+      <span class="chip chip-ok">✓ GitHub</span>
+      <span class="chip chip-warn">⚠ 无昨日日报</span>
+    </div>
+  </div>
+
+  <!-- KPI Bar -->
+  <div class="kpi-bar">
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-num">—</div>
+      <div class="kpi-label">Sentry 未解决</div>
+    </div>
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-num">—</div>
+      <div class="kpi-label">昨日新增告警</div>
+    </div>
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-num">—</div>
+      <div class="kpi-label">Linear 进行中</div>
+    </div>
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-num">20</div>
+      <div class="kpi-label">待处理 PR</div>
+    </div>
+    <div class="kpi-card kpi-muted">
+      <div class="kpi-num">0</div>
+      <div class="kpi-label">昨日遗留待办</div>
+    </div>
+  </div>
+
+  <!-- 昨日遗留待办 -->
+  <div class="section">
+    <div class="section-header">
+      📋 昨日遗留待办
+      <span class="badge">0</span>
+    </div>
+    <div class="section-body">
+      <div class="info-box">
+        未找到昨日日报（<code>reports/daily-report-2026-06-07.html</code> 不存在），无法提取遗留待办事项。
+      </div>
+    </div>
+  </div>
+
+  <!-- Sentry 高危巡检 -->
+  <div class="section">
+    <div class="section-header">
+      🚨 Sentry 高危巡检 — 未解决 Error
+    </div>
+    <div class="section-body">
+      <div class="info-box-warn">
+        <strong>⚠ 远程环境网络限制</strong>：Sentry API（<code>sentry.io</code>）在本次远程执行环境中被网络策略拦截（HTTP 403 host_not_allowed），无法拉取数据。<br>
+        <strong>上次已知状态（2026-06-05）：</strong>15 条未解决 error 告警，最高危为 conversation-service 扣费失败（829,821 次）和 tap-prod TurnstileError（81,842 次）。<br>
+        如需最新数据，请手动访问 <strong>Sentry → tamar-td 组织</strong>，或在本地运行晨间巡检。
+      </div>
+    </div>
+  </div>
+
+  <!-- Linear 任务看板 -->
+  <div class="section">
+    <div class="section-header">
+      📌 Linear 任务看板
+    </div>
+    <div class="section-body">
+      <div class="info-box">
+        <strong>⚠ 远程环境网络限制</strong>：Linear API（<code>api.linear.app</code>）在本次远程执行环境中被网络策略拦截，无法拉取数据。<br>
+        如需查看任务看板，请在本地环境执行晨间巡检，或直接访问 <strong>Linear 工作区</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- GitHub PR 待处理 -->
+  <div class="section">
+    <div class="section-header">
+      🔀 GitHub PR 待处理
+      <span class="badge">20</span>
+    </div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>仓库</th>
+            <th>PR 标题</th>
+            <th style="white-space:nowrap">最后更新</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 昨日更新 (2026-06-07) -->
+          <tr>
+            <td colspan="3" class="pr-group-label">📅 昨日更新 (2026-06-07)</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): GenUI show_widget rendering support</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-07</td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>fix: add plugin manifest proxy to vercel deployment</td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--green)">2026-06-07</td>
+          </tr>
+          <!-- 2天前更新 (2026-06-06) -->
+          <tr>
+            <td colspan="3" class="pr-group-label">⏰ 2天前更新 (2026-06-06)</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat: agent skills <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-06</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): add agent execution debug transcript <span class="stale-mark">⚠ 2天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-06</td>
+          </tr>
+          <!-- 3天前更新 (2026-06-05) -->
+          <tr>
+            <td colspan="3" class="pr-group-label">🔶 3天前更新 (2026-06-05) — 积压较多</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(tapnow): integrate Topaz 2.5 video-enhance frontend <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>fix(canvas): refresh from Bash notice output <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): optimize node history handling (PM-185) <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(canvas): Canvas node command center <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(desktop): add version policy gate <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>test(canvas): expand unit coverage gate FE-974 <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>fix(canvas): improve collaboration undo and cursors <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore(deps): bump the npm_and_yarn group across 3 directories with 4 updates <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <tr class="stale">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore(deps): bump the npm_and_yarn group across 3 directories with 5 updates <span class="stale-mark">⚠ 3天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--yellow)">2026-06-05</td>
+          </tr>
+          <!-- 4天前更新 (2026-06-04) -->
+          <tr>
+            <td colspan="3" class="pr-group-label">🔴 4天前更新 (2026-06-04)</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat: add Aliyun observability integration <span class="stale-mark-red">⚠ 4天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-04</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>feat(app): add Google Consent Mode v2 and EEA cookie banner <span class="stale-mark-red">⚠ 4天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-04</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>fix: scope MediaStorm preview behavior to custom domain <span class="stale-mark-red">⚠ 4天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-04</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">billing-center</td>
+            <td>chore(ci): 自动 rebase test 分支 <span class="stale-mark-red">⚠ 4天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-04</td>
+          </tr>
+          <!-- 5天前更新 (2026-06-03) -->
+          <tr>
+            <td colspan="3" class="pr-group-label">🔴 5天前更新 (2026-06-03)</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>[codex] Use tapnow.work for preview aliases <span class="stale-mark-red">⚠ 5天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-03</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore: add GTM container snippet <span class="stale-mark-red">⚠ 5天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-03</td>
+          </tr>
+          <tr class="stale-hot">
+            <td style="white-space:nowrap; font-size:11px; color:var(--text-muted)">fe-app-tapnow</td>
+            <td>chore: initialize qa automation workspace (ENG-128) <span class="stale-mark-red">⚠ 5天无活动</span></td>
+            <td style="white-space:nowrap; font-size:11px; color:var(--red)">2026-06-03</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px; font-size:11px; color:var(--text-muted);">
+        共 20 个 open PR · 其中 <span style="color:var(--red); font-weight:600;">7 个</span> ≥4天无活动 · <span style="color:var(--yellow); font-weight:600;">11 个</span> 2-3天无活动 · <span style="color:var(--green); font-weight:600;">2 个</span> 昨日更新
+      </div>
+    </div>
+  </div>
+
+  <!-- 今日行动清单 -->
+  <div class="section">
+    <div class="section-header">
+      ⚡ 今日行动清单 — Top 5 必做
+    </div>
+    <div class="section-body">
+      <ul class="action-list">
+        <li class="p1">
+          <span class="action-emoji">🔴</span>
+          <div class="action-text">
+            <div class="action-title">Review 昨日更新的 2 个新 PR（GenUI widget + Vercel 代理修复）</div>
+            <div class="action-desc">feat(canvas): GenUI show_widget rendering support 和 fix: add plugin manifest proxy to vercel deployment 均于昨日（06-07）更新，是当前最新待处理 PR，优先 review 和合并。</div>
+            <div class="action-source">来源：GitHub · Tamar-Edge-AI/fe-app-tapnow · 2026-06-07</div>
+          </div>
+        </li>
+        <li class="p1">
+          <span class="action-emoji">🔴</span>
+          <div class="action-text">
+            <div class="action-title">处理 7 个 4-5 天无活动的积压 PR</div>
+            <div class="action-desc">包括 Aliyun observability 集成、Google Consent Mode v2（合规相关）、MediaStorm 预览域修复、GTM 埋点、QA 自动化基础建设等，积压超过 4 天需紧急推进或关闭。</div>
+            <div class="action-source">来源：GitHub · Tamar-Edge-AI/fe-app-tapnow + billing-center · 2026-06-03/04</div>
+          </div>
+        </li>
+        <li class="p1">
+          <span class="action-emoji">🔴</span>
+          <div class="action-text">
+            <div class="action-title">手动检查 Sentry 告警状态（远程无法拉取）</div>
+            <div class="action-desc">本次远程巡检无法访问 Sentry API。上次已知（06-05）有 15 条未解决 error，含 conversation-service 扣费失败 82万次累计。请手动登录 Sentry 确认当前状态。</div>
+            <div class="action-source">来源：Sentry · tamar-td · 上次已知 2026-06-05</div>
+          </div>
+        </li>
+        <li class="p2">
+          <span class="action-emoji">🟡</span>
+          <div class="action-text">
+            <div class="action-title">处理 11 个 2-3 天无活动的 Canvas/Feature PR</div>
+            <div class="action-desc">包括 feat: agent skills、feat(canvas): add agent execution debug transcript（06-06），以及 Canvas 节点命令中心、节点历史优化（PM-185）、Desktop 版本策略、Topaz 2.5 视频增强等 9 个 06-05 PR。</div>
+            <div class="action-source">来源：GitHub · Tamar-Edge-AI/fe-app-tapnow · 2026-06-05/06</div>
+          </div>
+        </li>
+        <li class="p2">
+          <span class="action-emoji">🟡</span>
+          <div class="action-text">
+            <div class="action-title">查看 Linear 任务看板并规划本周工作</div>
+            <div class="action-desc">Linear API 在远程环境不可用，今日（周一）需在本地或 Linear 网页端检查本周 Sprint 任务，确认 In Progress / Todo 任务优先级，尤其关注与上述积压 PR 关联的 Linear 任务。</div>
+            <div class="action-source">来源：Linear · 远程不可用，请本地访问</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 数据说明 -->
+  <div class="section">
+    <div class="section-header">
+      ℹ️ 数据说明
+    </div>
+    <div class="section-body">
+      <div class="info-box">
+        <strong>数据来源：</strong>GitHub（n1203 相关 open PR，正常获取）<br>
+        <strong>Sentry：</strong>sentry.io 在本次远程执行环境中被网络策略拦截（HTTP 403 host_not_allowed），告警数据不可用。如需完整数据，请在本地运行或手动访问 Sentry 控制台。<br>
+        <strong>Linear：</strong>api.linear.app 在本次远程执行环境中被网络策略拦截（HTTP 403 host_not_allowed），任务看板数据不可用。如需完整数据，请在本地运行晨间巡检。<br>
+        <strong>Lark 日历：</strong>lark-cli 仅限本地环境使用，远程环境中不可用。如需包含日历事项的完整日报，请在本地运行 <code>daily-work-report</code> skill。<br>
+        <strong>昨日日报：</strong>未找到 <code>reports/daily-report-2026-06-07.html</code>，遗留待办为空。
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
